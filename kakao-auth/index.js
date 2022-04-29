@@ -1,6 +1,6 @@
 const passport = require("passport");
 const KakaoStrategy = require("passport-kakao").Strategy;
-const User = require("../schemas/user");
+const User = require("../schemas/user.schemas");
 require("dotenv").config();
 
 module.exports = () => {
@@ -43,14 +43,14 @@ module.exports = () => {
             const newUser = await User.create({
               nickname: profile.username,
               userId: profile.id,
-              profileUrl: profile._raw.kakao_account.profile.profile_image_url,
+              // profileUrl: profile._raw.kakao_account.profile.profile_image_url,
               // refreshToken: refreshToken,
               // userId: userId,
               // nickname: nickname,
               provider: "kakao",
             });
-            console.log("pro", profile);
-            console.log("user", newUser);
+            // console.log("pro", profile);
+            // console.log("user", newUser);
             done(null, newUser); // 회원가입하고 로그인 인증 완료
           }
         } catch (error) {
@@ -62,7 +62,7 @@ module.exports = () => {
   );
 };
 
-// {
+// profile{
 //   id: 2221693614,
 //   provider: 'kakao',
 //   username: '김영경',

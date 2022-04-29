@@ -5,7 +5,7 @@ const port = 3000;
 const authRouter = require("./kakao-auth/kakao/kakao");
 const passportKakao = require("./kakao-auth");
 
-const connect = require("./schemas");
+const connect = require("./schemas/index.schemas");
 
 const testRouter = require("./routes/post.router");
 

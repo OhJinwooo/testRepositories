@@ -1,5 +1,5 @@
-const Post = require("../../schemas/post");
-const { create } = require("../../schemas/user");
+const Post = require("../../schemas/post.schemas");
+const { create } = require("../../schemas/user.schemas");
 
 const getHome = async (req, res) => {
   const bestAmount = await Post.find({});
