@@ -21,7 +21,7 @@ const kakaoCallback = (req, res, next) => {
       provider: provider,
       // refreshToken: refreshToken,
     };
-    console.log(1, result);
+    console.log(1, result); // 배포하자마자 연경님 정보 찍힘
     res.send({ user: result });
   })(req, res, next);
 };
