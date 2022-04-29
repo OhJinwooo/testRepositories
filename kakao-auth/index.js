@@ -16,12 +16,8 @@ module.exports = () => {
       // profile: 카카오가 보내준 유저 정보. profile의 정보를 바탕으로 회원가입
 
       async (accessToken, refreshToken, profile, done) => {
-        // console.log(3, accessToken);
-        // console.log(4, refreshToken);
-        // const userId = "abcd@kakao.com";
-        // const nickname = "가나다";
+        console.log(profile._raw.kakao_account.profile.profile_image_url);
         try {
-          // console.log("dfsafd");
           const exUser = await User.findOne({
             // 카카오 플랫폼에서 로그인 했고 & snsId필드에 카카오 아이디가 일치할경우
             userId: profile.id,
@@ -44,12 +40,11 @@ module.exports = () => {
             done(null, exUser); // 로그인 인증 완료
           } else {
             // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
-            console.log("pro", profile);
             const newUser = await User.create({
               nickname: profile.username,
               userId: profile.id,
               profileUrl: profile._raw.kakao_account.profile.profile_image_url,
-              refreshToken: refreshToken,
+              // refreshToken: refreshToken,
               // userId: userId,
               // nickname: nickname,
               provider: "kakao",
@@ -72,15 +67,14 @@ module.exports = () => {
 //   provider: 'kakao',
 //   username: '김영경',
 //   displayName: '김영경',
-//   _raw: '{"id":2221693614,
-//   "connected_at":"2022-04-29T06:05:32Z",
-//   "properties":{"nickname":"김영경"},
-//   "kakao_account":{"profile_nickname_needs_agreement":false,
-//   "profile_image_needs_agreement":false,
-//   "profile":{"nickname":"김영경",
-//   "thumbnail_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_110x110.jpg",
-//   "profile_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_640x640.jpg",
-//   "is_default_image":false}}}',
+
+// _raw: '{"id":2221693614, "connected_at":"2022-04-29T06:05:32Z","properties":{"nickname":"김영경"},
+// "kakao_account":{"profile_nickname_needs_agreement":false, "profile_image_needs_agreement":false,
+// "profile":{"nickname":"김영경", "thumbnail_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_110x110.jpg",
+// "profile_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_640x640.jpg",
+
+// "is_default_image":false}}}',
+
 //   _json: {
 //    id: 2221693614,
 //     connected_at: '2022-04-29T06:05:32Z',
