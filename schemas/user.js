@@ -15,6 +15,9 @@ const UserSchema = new mongoose.Schema({
   profileUrl: {
     type: String,
   },
+  refreshToken: {
+    type: String,
+  },
   // role: {
   //   type: Boolean,
   // },

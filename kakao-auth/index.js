@@ -18,8 +18,8 @@ module.exports = () => {
 
       async (accessToken, refreshToken, profile, done) => {
         console.log(2, profile);
-        console.log(3, accessToken);
-        console.log(4, refreshToken);
+        // console.log(3, accessToken);
+        // console.log(4, refreshToken);
         // const userId = "abcd@kakao.com";
         // const nickname = "가나다";
         try {
@@ -51,10 +51,13 @@ module.exports = () => {
               nickname: profile.username,
               userId: profile.id,
               profileUrl: profile.profile_image_url,
+              refreshToken: refreshToken,
               // userId: userId,
               // nickname: nickname,
               provider: "kakao",
             });
+            console.log(profile._raw.profile_image_url);
+            console.log(profile.profile_image_url);
             done(null, newUser); // 회원가입하고 로그인 인증 완료
           }
         } catch (error) {
