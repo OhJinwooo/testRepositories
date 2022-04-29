@@ -16,7 +16,7 @@ module.exports = () => {
       // profile: 카카오가 보내준 유저 정보. profile의 정보를 바탕으로 회원가입
 
       async (accessToken, refreshToken, profile, done) => {
-        console.log(profile._raw.kakao_account.profile.profile_image_url);
+        // console.log(profile._raw.kakao_account.profile.profile_image_url);
         try {
           const exUser = await User.findOne({
             // 카카오 플랫폼에서 로그인 했고 & snsId필드에 카카오 아이디가 일치할경우
