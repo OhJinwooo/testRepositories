@@ -289,19 +289,14 @@ postRouter.get("/post/:postId", userController.findOneUser1);
  *                  address:
  *                    type: string
  *                  pprofile:
- *                    type: object
- *                    properties:
- *                      school:
- *                        type: string
- *                      career:
- *                        type: string
+ *                    type: string
  *              changeAddress:
  *                type: string
  *              imageUrl:
  *                type: string
  *              done:
  *                type: boolean
- *              likeCnt:
+ *              markupCnt:
  *                type: number
  */
 postRouter.post("/post");
