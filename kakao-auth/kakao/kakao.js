@@ -14,12 +14,12 @@ const kakaoCallback = (req, res, next) => {
 
     result = {
       token,
-      profileUrl,
+      profileUrl: profileUrl,
       userId: userId,
       nickname: nickname,
       provider: provider,
     };
-    console.log(result);
+    console.log(1, result);
     res.send({ user: result });
   })(req, res, next);
 };

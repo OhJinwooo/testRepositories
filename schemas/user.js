@@ -12,6 +12,9 @@ const UserSchema = new mongoose.Schema({
   provider: {
     type: String,
   },
+  profileUrl: {
+    type: String,
+  },
   // role: {
   //   type: Boolean,
   // },
