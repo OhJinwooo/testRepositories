@@ -29,7 +29,7 @@ module.exports = () => {
           // console.log("newUser", exUser);
           // 이미 가입된 카카오 프로필이면 성공
           if (exUser) {
-            // console.log(9999, exUser);
+            console.log(9999, exUser);
             done(null, exUser); // 로그인 인증 완료
           } else {
             const user = {
@@ -43,6 +43,7 @@ module.exports = () => {
             await User.create(user);
             // console.log("pro", profile);
             // console.log("user", newUser);
+            console.log(8888, user);
             done(null, user); // 회원가입하고 로그인 인증 완료
           }
         } catch (error) {
