@@ -37,7 +37,7 @@ module.exports = () => {
               userId: profile.id,
               nickname: profile.username,
               provider: "kakao",
-              // profileUrl: profile._raw.kakao_account.profile.profile_image_url,
+              profileUrl: profile._json.properties?.profile?.profile_image,
             };
 
             // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
@@ -79,3 +79,60 @@ module.exports = () => {
 //       profile: [Object]
 //     }
 //   }
+
+
+{
+    provider: 'kakao',
+  id: 2222423044,
+  username: '이한울',
+  displayName: '이한울',
+  _raw: '{"id":2222423044,"connected_at":"2022-04-29T17:20:56Z","properties":{"nickname":"이한울"},"kakao_account":{"profile_nickname_needs_agreement":false,"profile_image_needs_agreement":true,"profile":{"nickname":"이한울"}}}',
+  _json: {
+      id: 2222423044,
+      connected_at: '2022-04-29T17:20:56Z',
+    properties: { nickname: '이한울' },
+    kakao_account: {
+        profile_nickname_needs_agreement: false,
+        profile_image_needs_agreement: true,
+        profile: [Object]
+    }
+  }
+}
+  
+{
+  provider: 'kakao',
+  id: 2221693614,
+  username: '김영경',
+  displayName: '김영경',
+  _raw: '{"id":2221693614,"connected_at":"2022-04-29T06:05:32Z","properties":{"nickname":"김영경"},"kakao_account":{"profile_nickname_needs_agreement":false,"profile_image_needs_agreement":false,"profile":{"nickname":"김영경","thumbnail_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_110x110.jpg","profile_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_640x640.jpg","is_default_image":false}}}',
+  _json: {
+    id: 2221693614,
+    connected_at: '2022-04-29T06:05:32Z',
+    properties: { nickname: '김영경' },
+    kakao_account: {
+      profile_nickname_needs_agreement: false,
+      profile_image_needs_agreement: false,
+      profile: [Object]
+    }
+  }
+}
+{
+provider: 'kakao',
+id: 2222434554,
+username: '진우',
+displayName: '진우',
+_raw: '{"id":2222434554,"connected_at":"2022-04-29T17:55:38Z","properties":{"nickname":"진우","profile_image":"http://k.kakaocdn.net/dn/bm39xQ/btry32waEu1/tNiMvr9Grqn6cXBvnplfc0/img_640x640.jpg","thumbnail_image":"http://k.kakaocdn.net/dn/bm39xQ/btry32waEu1/tNiMvr9Grqn6cXBvnplfc0/img_110x110.jpg"},"kakao_account":{"profile_nickname_needs_agreement":false,"profile_image_needs_agreement":false,"profile":{"nickname":"진우","thumbnail_image_url":"http://k.kakaocdn.net/dn/bm39xQ/btry32waEu1/tNiMvr9Grqn6cXBvnplfc0/img_110x110.jpg","profile_image_url":"http://k.kakaocdn.net/dn/bm39xQ/btry32waEu1/tNiMvr9Grqn6cXBvnplfc0/img_640x640.jpg","is_default_image":false}}}',
+_json: {
+  id: 2222434554,
+  connected_at: '2022-04-29T17:55:38Z',
+  properties: {
+    nickname: '진우',
+    profile_image: 'http://k.kakaocdn.net/dn/bm39xQ/btry32waEu1/tNiMvr9Grqn6cXBvnplfc0/img_640x640.jpg',
+    thumbnail_image: 'http://k.kakaocdn.net/dn/bm39xQ/btry32waEu1/tNiMvr9Grqn6cXBvnplfc0/img_110x110.jpg'
+  },
+  kakao_account: {
+    profile_nickname_needs_agreement: false,
+    profile_image_needs_agreement: false,
+    profile: [Object]
+  }
+}
