@@ -18,15 +18,15 @@ module.exports = () => {
 
       async (accessToken, refreshToken, profile, done) => {
         console.log("123123123");
-        const userId = "abcd@kakao.com";
-        const nickname = "가나다";
+        // const userId = "abcd@kakao.com";
+        // const nickname = "가나다";
         try {
           // console.log("dfsafd");
           const exUser = await User.findOne({
             // 카카오 플랫폼에서 로그인 했고 & snsId필드에 카카오 아이디가 일치할경우
-            // userId: profile.id,
+            userId: profile.id,
             provider: "kakao",
-            userId,
+            // userId,
             // nickname,
           });
           // const user = {
@@ -45,10 +45,10 @@ module.exports = () => {
           } else {
             // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
             const newUser = await User.create({
-              // nickname: profile.username,
-              // userId: profile.id,
-              userId: userId,
-              nickname: nickname,
+              nickname: profile.username,
+              userId: profile.id,
+              // userId: userId,
+              // nickname: nickname,
               provider: "kakao",
             });
             done(null, newUser); // 회원가입하고 로그인 인증 완료
