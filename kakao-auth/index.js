@@ -17,8 +17,6 @@ module.exports = () => {
 
       async (accessToken, refreshToken, profile, done) => {
         console.log(2, profile);
-        onsole.log(3, profile._raw.kakao_account.profile.profile_image_url);
-        console.log(4, profile.profile_image_url);
         // console.log(3, accessToken);
         // console.log(4, refreshToken);
         // const userId = "abcd@kakao.com";
@@ -51,7 +49,7 @@ module.exports = () => {
             const newUser = await User.create({
               nickname: profile.username,
               userId: profile.id,
-              profileUrl: profile.profile_image_url,
+              profileUrl: profile._raw.kakao_account.profile.profile_image_url,
               refreshToken: refreshToken,
               // userId: userId,
               // nickname: nickname,
