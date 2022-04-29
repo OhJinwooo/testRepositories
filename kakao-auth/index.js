@@ -25,33 +25,26 @@ module.exports = () => {
             // userId,
             // nickname,
           });
-          // const user = {
-          //   hi: "hi",
-          // userId: profile.id,
-          // nickname: profile.username,
-          // userId: userId,
-          // nickname: nickname,
-          // profileUrl: profile._json.properties,
-          // };
+
           console.log("newUser", exUser);
           done(null, exUser);
           // 이미 가입된 카카오 프로필이면 성공
           if (exUser) {
             done(null, exUser); // 로그인 인증 완료
           } else {
-            // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
-            const newUser = await User.create({
-              nickname: profile.username,
+            const user = {
+              hi: "hi",
               userId: profile.id,
-              // profileUrl: profile._raw.kakao_account.profile.profile_image_url,
-              // refreshToken: refreshToken,
-              // userId: userId,
-              // nickname: nickname,
+              nickname: profile.username,
               provider: "kakao",
-            });
+              // profileUrl: profile._json.properties,
+            };
+
+            // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
+            const newUser = await User.create(user);
             // console.log("pro", profile);
             // console.log("user", newUser);
-            done(null, newUser); // 회원가입하고 로그인 인증 완료
+            done(null, user); // 회원가입하고 로그인 인증 완료
           }
         } catch (error) {
           console.error(error);
