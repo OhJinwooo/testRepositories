@@ -13,6 +13,7 @@ connect();
 app.use(cors());
 app.use("/oauth", authRouter);
 app.use(express.json());
+// app.use("/api", [postRouter]);
 
 app.listen(port, () => {
   console.log(port, "서버가 연결되었습니다.");

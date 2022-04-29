@@ -14,7 +14,7 @@ const kakaoCallback = (req, res, next) => {
     result = {
       token,
       userId: userId,
-      nickname: userName,
+      nickname: nickname,
     };
     console.log(result);
     res.send({ user: result });
