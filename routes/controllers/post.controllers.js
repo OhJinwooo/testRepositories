@@ -11,10 +11,11 @@ const getHome = async (req, res) => {
   // postContent, createdAt, category, done 제거하고 res
 
   const attention = await user.find({});
-  //   const artSort = 정렬 무슨기준?
+  //   const artSort = 정렬 무슨기준? 최근 물건이 팔린 순
 
   const bestReview = review.find({});
   //seller, createdAt 제거 후 res
+
   res.json({ bestPost });
 };
 

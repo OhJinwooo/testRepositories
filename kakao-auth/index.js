@@ -33,15 +33,14 @@ module.exports = () => {
             done(null, exUser); // 로그인 인증 완료
           } else {
             const user = {
-              hi: "hi",
               userId: profile.id,
               nickname: profile.username,
               provider: "kakao",
-              // profileUrl: profile._json.properties,
+              profileUrl: profile._raw.kakao_account.profile.profile_image_url,
             };
 
             // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
-            const newUser = await User.create(user);
+            await User.create(user);
             // console.log("pro", profile);
             // console.log("user", newUser);
             done(null, user); // 회원가입하고 로그인 인증 완료
