@@ -29,6 +29,7 @@ module.exports = () => {
           console.log("newUser", exUser);
           // 이미 가입된 카카오 프로필이면 성공
           if (exUser) {
+            console.log(9999, exUser);
             done(null, exUser); // 로그인 인증 완료
           } else {
             const user = {
