@@ -17,7 +17,9 @@ module.exports = () => {
       // profile: 카카오가 보내준 유저 정보. profile의 정보를 바탕으로 회원가입
 
       async (accessToken, refreshToken, profile, done) => {
-        console.log("123123123");
+        console.log(2, profile);
+        console.log(3, accessToken);
+        console.log(4, refreshToken);
         // const userId = "abcd@kakao.com";
         // const nickname = "가나다";
         try {
