@@ -8,14 +8,14 @@ router.get("/kakao", passport.authenticate("kakao"));
 const kakaoCallback = (req, res, next) => {
   passport.authenticate("kakao", { failureRedirect: "/" }, (err, user) => {
     if (err) return next(err);
-    const { userId, username } = user;
+    const { userId, userName } = user;
     const token = jwt.sign({ userId: userId }, "kakao-secret-key");
 
     result = {
       hi: user.hi,
       token,
       userId: userId,
-      username: username,
+      userName: userName,
     };
     console.log(result);
     res.send({ user: result });

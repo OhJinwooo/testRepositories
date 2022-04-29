@@ -24,7 +24,7 @@ module.exports = () => {
           const user = {
             hi: "hi",
             userId: profile.id,
-            username: profile.username,
+            userName: profile.userName,
           };
           console.log("newUser", user);
           done(null, user);
@@ -34,7 +34,7 @@ module.exports = () => {
           } else {
             // 가입되지 않는 유저면 회원가입 시키고 로그인을 시킨다
             const newUser = await User.create({
-              username: profile.username,
+              userName: profile.userName,
               userId: profile.id,
               provider: "kakao",
             });
