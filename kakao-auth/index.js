@@ -50,7 +50,7 @@ module.exports = () => {
             const newUser = await User.create({
               nickname: profile.username,
               userId: profile.id,
-              profileUrl: profile.profile_image,
+              profileUrl: profile._raw.profile_image_url,
               // userId: userId,
               // nickname: nickname,
               provider: "kakao",
@@ -118,3 +118,28 @@ module.exports = () => {
 //     )
 //   );
 // };
+
+// {
+//   id: 2221693614,
+//   provider: 'kakao',
+//   username: '김영경',
+//   displayName: '김영경',
+//   _raw: '{"id":2221693614,
+//   "connected_at":"2022-04-29T06:05:32Z",
+//   "properties":{"nickname":"김영경"},
+//   "kakao_account":{"profile_nickname_needs_agreement":false,
+//   "profile_image_needs_agreement":false,
+//   "profile":{"nickname":"김영경",
+//   "thumbnail_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_110x110.jpg",
+//   "profile_image_url":"http://k.kakaocdn.net/dn/bX6fsi/btrAOAZ88w3/wLjKgaZEm4V6oKaQKyJqF1/img_640x640.jpg",
+//   "is_default_image":false}}}',
+//   _json: {
+//    id: 2221693614,
+//     connected_at: '2022-04-29T06:05:32Z',
+//     properties: { nickname: '김영경' },
+//     kakao_account: {
+//       profile_nickname_needs_agreement: false,
+//       profile_image_needs_agreement: false,
+//       profile: [Object]
+//     }
+//   }
